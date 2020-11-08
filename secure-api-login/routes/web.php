@@ -16,3 +16,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+Route::group(['prefic' => 'sws-api-rest', 'middleware' => 'auth'], function($app) {
+
+    $app->get('secure-login','ApiMainController@secure-login');
+
+});
